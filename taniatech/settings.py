@@ -8,6 +8,7 @@ import os
 from dotenv import load_dotenv
 import dj_database_url
 
+
 # Build paths
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,7 +21,7 @@ SECRET_KEY = 'django-insecure-^b^jeq3x@(kqg201u%z@+9hyar21li$-5*ylq**334w9))bqm!
 # SECURITY WARNING: don’t run with debug = True in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['taniatech-4.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['taniatech-4.onrender.com', 'localhost', '127.0.0.1','taniatech.com']
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.ngrok-free.app",
