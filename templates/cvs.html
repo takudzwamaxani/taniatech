@@ -1,0 +1,690 @@
+{% load static %} {% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- required meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="{% static '' %}" />
+
+    <!-- title -->
+    <title>TaniaTech Job Portal</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/img/logo/favicon.png" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/all-fontawesome.min.css" />
+    <link rel="stylesheet" href="assets/css/feather.min.css" />
+    <link rel="stylesheet" href="assets/css/flaticon.css" />
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css" />
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/css/nice-select.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+  </head>
+
+  <body>
+    <!-- preloader -->
+    <div class="preloader">
+      <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <!-- preloader end -->
+
+    <!-- header area -->
+    <header class="header">
+      <div class="main-navigation">
+        <nav class="navbar navbar-expand-lg">
+          <div
+            class="container d-flex justify-content-between align-items-center"
+          >
+            <!-- Logo -->
+            <a
+              class="navbar-brand"
+              href="/"
+              style="
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                line-height: 0;
+              "
+            >
+              <img
+                src="assets/img/logo/logo.png"
+                alt="logo"
+                style="
+                  display: block;
+                  margin: 0;
+                  padding: 0;
+                  height: 70px;
+                  width: auto;
+                "
+              />
+            </a>
+
+            <!-- Mobile menu button (only visible on mobile) -->
+            <div class="mobile-menu-right d-lg-none">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#main_nav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-btn-icon">
+                  <i class="far fa-bars"></i>
+                </span>
+              </button>
+            </div>
+
+            <!-- Navbar links -->
+            <div
+              class="collapse navbar-collapse justify-content-end align-items-center gap-3"
+              id="main_nav"
+            >
+              <ul class="navbar-nav d-flex gap-3">
+                <li class="nav-item">
+                  <a class="nav-link active" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/jobs">Jobs</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/cvs">Get your CV</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/news">News</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contact">Contact</a>
+                </li>
+              </ul>
+
+              <!-- Sign In -->
+              <div class="header-nav-right ms-3">
+                <div class="header-btn">
+                  <a href="/login" class="theme-btn theme-btn2">
+                    <span class="far fa-sign-in"></span> Sign In
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+
+    <main class="main">
+      <!-- breadcrumb -->
+      <div class="site-breadcrumb">
+        <div class="container">
+          <h2 class="breadcrumb-title">My Resume</h2>
+          <ul class="breadcrumb-menu">
+            <li><a href="index.html">Home</a></li>
+            <li class="active">My Resume</li>
+          </ul>
+        </div>
+        <div class="hero-shape">
+          <img class="hero-shape-1" src="assets/img/shape/03.svg" alt="" />
+          <img class="hero-shape-2" src="assets/img/shape/05.svg" alt="" />
+          <img class="hero-shape-3" src="assets/img/shape/06.svg" alt="" />
+          <img class="hero-shape-4" src="assets/img/shape/07.svg" alt="" />
+        </div>
+      </div>
+
+      <!-- candidate-profile -->
+      <div class="user-profile py-120">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="user-profile-sidebar">
+                <div class="user-profile-sidebar-top">
+                  <div class="user-profile-img">
+                    <img src="assets/img/candidate/01.jpg" alt="" />
+                    <button type="button" class="profile-img-btn">
+                      <i class="far fa-camera"></i>
+                    </button>
+                    <input type="file" class="profile-img-file" />
+                  </div>
+                  <h4>Laura Packer</h4>
+                  <p>Full Stack Web Developer</p>
+                </div>
+                <ul class="user-profile-sidebar-list">
+                  <li>
+                    <a href="candidate-dashboard.html"
+                      ><i class="far fa-gauge-high"></i> Dashboard</a
+                    >
+                  </li>
+                  <li>
+                    <a href="candidate-profile.html"
+                      ><i class="far fa-user-tie"></i> My Profile</a
+                    >
+                  </li>
+                  <li>
+                    <a class="active" href="candidate-resume.html"
+                      ><i class="far fa-file-lines"></i> My Resume</a
+                    >
+                  </li>
+                  <li>
+                    <a href="candidate-applied-job.html"
+                      ><i class="far fa-briefcase"></i> Applied Jobs</a
+                    >
+                  </li>
+                  <li>
+                    <a href="candidate-shortlisted-job.html"
+                      ><i class="far fa-layer-group"></i> Shortlisted Jobs</a
+                    >
+                  </li>
+                  <li>
+                    <a href="candidate-cv-manager.html"
+                      ><i class="far fa-file-zipper"></i> CV Manager</a
+                    >
+                  </li>
+                  <li>
+                    <a href="candidate-saved-job.html"
+                      ><i class="far fa-bookmark"></i> Saved Jobs</a
+                    >
+                  </li>
+                  <li>
+                    <a href="candidate-message.html"
+                      ><i class="far fa-envelope"></i> Messages
+                      <span class="badge">02</span></a
+                    >
+                  </li>
+                  <li>
+                    <a href="candidate-transaction.html"
+                      ><i class="far fa-coins"></i> Transaction</a
+                    >
+                  </li>
+                  <li>
+                    <a href="candidate-job-alert.html"
+                      ><i class="far fa-bell"></i> Job Alerts
+                      <span class="badge">05</span></a
+                    >
+                  </li>
+                  <li>
+                    <a href="candidate-settings.html"
+                      ><i class="far fa-cog"></i> Settings</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="far fa-trash-can"></i> Delete Profile</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"><i class="far fa-sign-out"></i> Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-9">
+              <div class="user-profile-wrapper">
+                <div class="user-profile-card">
+                  <h4 class="user-profile-card-title">CV Content</h4>
+                  <div class="profile-resume">
+                    <div class="profile-form">
+                      <form action="#">
+                        <h6 class="mb-3">Bio Data</h6>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Professional Title</label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Enter Heading"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Name</label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Enter Name"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Surname</label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Enter Surname"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Date of birth</label>
+                              <input
+                                type="date"
+                                class="form-control"
+                                placeholder="Enter D.O.B"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Email</label>
+                              <input
+                                type="email"
+                                class="form-control"
+                                placeholder="Enter Email"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Contact Number</label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Enter Contact Number"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Address</label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Address"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Profile Picture</label>
+                              <input
+                                type="file"
+                                class="form-control"
+                                placeholder="Select Picture"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Resume Color</label>
+                              <select class="form-control">
+                                <option value="">
+                                  -- Select Resume Color --
+                                </option>
+                                <option value="Blue">Blue</option>
+                                <option value="Green">Green</option>
+                                <option value="Gray">Gray</option>
+                                <option value="Black">Black</option>
+                                <option value="Custom">Custom Color</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Highest Qualification</label>
+                              <input
+                                type="file"
+                                class="form-control"
+                                placeholder="Enter Highest Qualification"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Payment Option</label>
+                              <select class="form-control">
+                                <option value="">Select Payment Option</option>
+                                <option value="Basic">
+                                  Basic - $10 (2 CV concepts)
+                                </option>
+                                <option value="Pro">
+                                  Pro - $20 (5 CV concepts + unlimited changes)
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label>Professional Summary</label>
+                              <textarea
+                                class="form-control"
+                                name="professional_summary"
+                                placeholder="Enter your professional summary"
+                                rows="5"
+                              ></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <!-- Skills Tag Input -->
+                            <div class="form-group">
+                              <label>Skills</label>
+                              <input
+                                id="skills-input"
+                                type="text"
+                                class="form-control"
+                                name="skills"
+                                placeholder="Add skills..."
+                              />
+                            </div>
+
+                            <!-- Hobbies Tag Input -->
+                            <div class="form-group">
+                              <label>Hobbies</label>
+                              <input
+                                id="hobbies-input"
+                                type="text"
+                                class="form-control"
+                                name="hobbies"
+                                placeholder="Add hobbies..."
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        {# cv_detail.html #}
+                        <div class="row">
+                          <!-- Work Experiences Column -->
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Work Experiences</label>
+                              <ul class="list-group">
+                                {% for exp in profile.work_experiences.all %}
+                                <li class="list-group-item">
+                                  <strong>{{ exp.job_title }}</strong> at {{
+                                  exp.company_name }}
+                                  <br />
+                                  <small>
+                                    {{ exp.start_date|date:"M Y" }} — {% if exp.end_date %} {{ exp.end_date|date:"M Y" } {% else %} Present {% endif %}
+                                  </small>
+                                  {% if exp.description %}
+                                  <p class="mt-2 mb-0">{{ exp.description }}</p>
+                                  {% endif %}
+                                </li>
+                                {% empty %}
+                                <li class="list-group-item text-muted">
+                                  No work experiences added.
+                                </li>
+                                {% endfor %}
+                              </ul>
+                            </div>
+                          </div>
+
+                          <!-- References Column -->
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>References</label>
+                              <ul class="list-group">
+                                {% for ref in profile.references.all %}
+                                <li class="list-group-item">
+                                  <strong>{{ ref.name }}</strong> ({{
+                                  ref.relationship }})
+                                  <br />
+                                  {% if ref.email %}
+                                  <small>Email: {{ ref.email }}</small><br />
+                                  {% endif %} {% if ref.phone %}
+                                  <small>Phone: {{ ref.phone }}</small>
+                                  {% endif %}
+                                </li>
+                                {% empty %}
+                                <li class="list-group-item text-muted">
+                                  No references provided.
+                                </li>
+                                {% endfor %}
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- candidate-profile end -->
+    </main>
+
+    <!-- footer area -->
+    <footer class="footer-area">
+      <div class="footer-widget">
+        <div class="container">
+          <div class="row footer-widget-wrapper pt-100 pb-70">
+            <div class="col-md-6 col-lg-4 col-xl-3">
+              <div class="footer-widget-box about-us">
+                <a href="#" class="footer-logo">
+                  <img src="assets/img/logo/logo.png" alt="" />
+                </a>
+                <p class="mb-4">
+                  We are many variations of passages available but the majority
+                  have suffered alteration in some form by injected.
+                </p>
+                <ul class="footer-contact">
+                  <li>
+                    <a href="tel:+21236547898"
+                      ><i class="far fa-phone"></i>+2 123 654 7898</a
+                    >
+                  </li>
+                  <li>
+                    <i class="far fa-map-marker-alt"></i>25/B Milford Road, New
+                    York
+                  </li>
+                  <li>
+                    <a
+                      href="../cdn-cgi/l/email-protection.html#a3cacdc5cce3c6dbc2ced3cfc68dc0ccce"
+                      ><i class="far fa-envelope"></i
+                      ><span
+                        class="__cf_email__"
+                        data-cfemail="70191e161f301508111d001c155e131f1d"
+                        >[email&#160;protected]</span
+                      ></a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 col-xl-2">
+              <div class="footer-widget-box list">
+                <h4 class="footer-widget-title">Company</h4>
+                <ul class="footer-list">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Pricing Plan</a></li>
+                  <li><a href="#">Site Map</a></li>
+                  <li><a href="#">Security Center</a></li>
+                  <li><a href="#">Our Team</a></li>
+                  <li><a href="#">Latest Blog</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 col-xl-2">
+              <div class="footer-widget-box list">
+                <h4 class="footer-widget-title">Quick Links</h4>
+                <ul class="footer-list">
+                  <li><a href="#">Find Jobs</a></li>
+                  <li><a href="#">Employers</a></li>
+                  <li><a href="#">Candidates</a></li>
+                  <li><a href="#">Post Job</a></li>
+                  <li><a href="#">Sign In</a></li>
+                  <li><a href="#">Sign Up</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 col-xl-2">
+              <div class="footer-widget-box list">
+                <h4 class="footer-widget-title">Support</h4>
+                <ul class="footer-list">
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">Faq's</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Terms Of Service</a></li>
+                  <li><a href="#">Need Help</a></li>
+                  <li><a href="#">Live Chat</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 col-xl-3">
+              <div class="footer-widget-box list">
+                <h4 class="footer-widget-title">Newsletter</h4>
+                <div class="footer-newsletter">
+                  <p>Subscribe Our Newsletter To Get Latest Update And News</p>
+                  <div class="subscribe-form">
+                    <form action="#">
+                      <div class="form-group">
+                        <div class="form-group-icon">
+                          <i class="fe-mail"></i>
+                          <input
+                            type="email"
+                            class="form-control"
+                            placeholder="Your Email"
+                          />
+                          <button class="theme-btn" type="submit">
+                            <span class="fe-send"></span>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="footer-download">
+                  <h5>Download</h5>
+                  <div class="footer-download-content">
+                    <a href="#"
+                      ><img src="assets/img/download/google-play.png" alt=""
+                    /></a>
+                    <a href="#"
+                      ><img src="assets/img/download/app-store.png" alt=""
+                    /></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 align-self-center">
+              <p class="copyright-text">
+                &copy; Copyright <span id="date"></span>
+                <a href="#"> Jobox </a> All Rights Reserved.
+              </p>
+            </div>
+            <div class="col-md-6 align-self-center">
+              <ul class="footer-social">
+                <li>
+                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-x-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-youtube"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer area end -->
+
+    <!-- scroll-top -->
+    <a href="#" id="scroll-top"><i class="far fa-angle-up"></i></a>
+    <!-- scroll-top end -->
+
+    <!-- js -->
+    <script
+      data-cfasync="false"
+      src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/modernizr.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/counter-up.js"></script>
+    <script src="assets/js/masonry.pkgd.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/nice-select.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+      // Django renders lists like ['Python', 'Django', 'React']
+      var skillsWhitelist = {{ skills|safe }};
+      var hobbiesWhitelist = {{ hobbies|safe }};
+
+      // Initialize Tagify for Skills
+      new Tagify(document.getElementById('skills-input'), {
+        whitelist: skillsWhitelist,
+        dropdown: {
+          enabled: 1,
+          maxItems: 10
+        }
+      });
+
+      // Initialize Tagify for Hobbies
+      new Tagify(document.getElementById('hobbies-input'), {
+        whitelist: hobbiesWhitelist,
+        dropdown: {
+          enabled: 1,
+          maxItems: 10
+        }
+      });
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+    <script>
+      // Django context variables: lists of names
+      const skillsList = {{ skills|safe }};
+      const hobbiesList = {{ hobbies|safe }};
+
+      new Tagify(document.getElementById('skills-input'), {
+        whitelist: skillsList,
+        dropdown: { enabled: 1, maxItems: 10 }
+      });
+
+      new Tagify(document.getElementById('hobbies-input'), {
+        whitelist: hobbiesList,
+        dropdown: { enabled: 1, maxItems: 10 }
+      });
+    </script>
+  </body>
+
+  <!-- Mirrored from live.themewild.com/jobox/candidate-resume.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 02 Jul 2025 05:57:42 GMT -->
+</html>

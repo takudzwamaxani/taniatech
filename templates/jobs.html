@@ -1,0 +1,620 @@
+{% load static %} {% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- required meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="{% static '' %}" />
+
+    <!-- title -->
+    <!-- title -->
+    <title>TaniaTech Job Portal</title>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/logo/favicon.png" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/all-fontawesome.min.css" />
+    <link rel="stylesheet" href="assets/css/feather.min.css" />
+    <link rel="stylesheet" href="assets/css/flaticon.css" />
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css" />
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/css/nice-select.min.css" />
+    <link rel="stylesheet" href="assets/css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <!-- preloader -->
+    <div class="preloader">
+      <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <!-- preloader end -->
+    <!-- header area -->
+    <header class="header">
+      <div class="main-navigation">
+        <nav class="navbar navbar-expand-lg">
+          <div
+            class="container d-flex justify-content-between align-items-center"
+          >
+            <!-- Logo -->
+            <a
+              class="navbar-brand"
+              href="/"
+              style="
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                line-height: 0;
+              "
+            >
+              <img
+                src="assets/img/logo/logo.png"
+                alt="logo"
+                style="
+                  display: block;
+                  margin: 0;
+                  padding: 0;
+                  height: 70px;
+                  width: auto;
+                "
+              />
+            </a>
+
+            <!-- Mobile menu button (only visible on mobile) -->
+            <div class="mobile-menu-right d-lg-none">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#main_nav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-btn-icon">
+                  <i class="far fa-bars"></i>
+                </span>
+              </button>
+            </div>
+
+            <!-- Navbar links -->
+            <div
+              class="collapse navbar-collapse justify-content-end align-items-center gap-3"
+              id="main_nav"
+            >
+              <ul class="navbar-nav d-flex gap-3">
+                <li class="nav-item">
+                  <a class="nav-link active" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/jobs">Jobs</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/cvs">Get your CV</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/news">News</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contact">Contact</a>
+                </li>
+              </ul>
+
+              <!-- Sign In -->
+              <div class="header-nav-right ms-3">
+                <div class="header-btn">
+                  <a href="/login" class="theme-btn theme-btn2">
+                    <span class="far fa-sign-in"></span> Sign In
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+
+    <main class="main">
+      <!-- breadcrumb -->
+      <div class="site-breadcrumb pb-5">
+        <div class="container">
+          <h2 class="breadcrumb-title">Job List</h2>
+          <ul class="breadcrumb-menu">
+            <li><a href="/">Home</a></li>
+            <li class="active">Job List</li>
+          </ul>
+
+          <div class="job-list2 search-form mt-5 mb-3">
+            <div class="col-lg-9 mx-auto">
+              <div class="search-form-wrapper">
+              <form action="{% url 'jobs' %}" method="get">
+  <div class="row">
+    <!-- Keyword -->
+    <div class="col-md-4 px-0">
+      <div class="form-group">
+        <div class="form-group-icon">
+          <input
+            type="text"
+            name="keyword"
+            required
+            class="form-control"
+            placeholder="Type Keyword..."
+            value="{{ query_params.keyword|default:'' }}"
+          />
+          <i class="fe-search"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Location (Country) -->
+    <div class="col-md-3 px-0">
+      <div class="form-group">
+        <div class="form-group-icon">
+          <select name="country" class="select"  required>
+            <option value="">Select Country</option>
+            {% for country in countries %}
+              <option value="{{ country.id }}" {% if query_params.country == country.id|stringformat:'s' %}selected{% endif %}>
+                {{ country.name }}
+              </option>
+            {% endfor %}
+          </select>
+          <i class="fe-map-pin"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category -->
+    <div class="col-md-3 px-0">
+      <div class="form-group">
+        <div class="form-group-icon">
+          <select name="category" class="select"  required>
+            <option value="">Select Category</option>
+            {% for cat in categories %}
+              <option value="{{ cat.id }}" {% if query_params.category == cat.id|stringformat:'s' %}selected{% endif %}>
+                {{ cat.name }}
+              </option>
+            {% endfor %}
+          </select>
+          <i class="fe-briefcase"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="col-md-2 px-1">
+      <div class="form-group">
+        <button type="submit" class="theme-btn w-100">
+          <span class="fe-search"></span>Search
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-shape">
+          <img class="hero-shape-1" src="assets/img/shape/03.svg" alt="" />
+          <img class="hero-shape-2" src="assets/img/shape/05.svg" alt="" />
+          <img class="hero-shape-3" src="assets/img/shape/06.svg" alt="" />
+          <img class="hero-shape-4" src="assets/img/shape/07.svg" alt="" />
+        </div>
+      </div>
+
+      <!-- job list -->
+      <div class="job-list2 py-120">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-xl-3 mb-4">
+                <form method="GET" id="job-filter-form">
+                <div class="job-sidebar">
+
+                    <!-- Category -->
+                    <div class="job-sidebar-item">
+                    <h4 class="job-sidebar-title">Category</h4>
+                    {% for cat in categories %}
+                    <div class="form-check">
+                        <input
+                        class="form-check-input"
+                        name="category"
+                        type="checkbox"
+                        value="{{ cat.id }}"
+                        id="category{{ cat.id }}"
+                        {% if cat.id|stringformat:"s" in selected_categories %}checked{% endif %}
+                        />
+                        <label class="form-check-label" for="category{{ cat.id }}">{{ cat.name }}</label>
+                    </div>
+                    {% endfor %}
+                    </div>
+
+                    <!-- Job Type -->
+                    <div class="job-sidebar-item">
+                    <h4 class="job-sidebar-title">Job Type</h4>
+                    {% for jt in job_types %}
+                    <div class="form-check">
+                        <input
+                        class="form-check-input"
+                        name="job-type"
+                        type="checkbox"
+                        value="{{ jt.id }}"
+                        id="job-type{{ jt.id }}"
+                        {% if jt.id|stringformat:"s" in selected_job_types %}checked{% endif %}
+                        />
+                        <label class="form-check-label" for="job-type{{ jt.id }}">{{ jt.name }}</label>
+                    </div>
+                    {% endfor %}
+                    </div>
+
+                    <!-- Experience -->
+                    <div class="job-sidebar-item">
+                    <h4 class="job-sidebar-title">Experience Level</h4>
+                    {% for level in job_levels %}
+                    <div class="form-check">
+                        <input
+                        class="form-check-input"
+                        name="experience"
+                        type="checkbox"
+                        value="{{ level.id }}"
+                        id="experience{{ level.id }}"
+                        {% if level.id|stringformat:"s" in selected_experience_levels %}checked{% endif %}
+                        />
+                        <label class="form-check-label" for="experience{{ level.id }}">{{ level.name }}</label>
+                    </div>
+                    {% endfor %}
+                    </div>
+
+                    <!-- Job Posted -->
+                    <div class="job-sidebar-item">
+                    <h4 class="job-sidebar-title">Job Posted</h4>
+                    {% for item in job_posted_options %}
+                    <div class="form-check">
+                        <input
+                        class="form-check-input"
+                        name="job-posted"
+                        type="checkbox"
+                        value="{{ item.0 }}"
+                        id="job-posted{{ item.0 }}"
+                        {% if item.0 in selected_posted %}checked{% endif %}
+                        />
+                        <label class="form-check-label" for="job-posted{{ item.0 }}">{{ item.1 }}</label>
+                    </div>
+                    {% endfor %}
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="job-sidebar-item">
+                    <h4 class="job-sidebar-title">Gender</h4>
+                    <select name="gender" class="form-select">
+                        <option value="">Any</option>
+                        {% for item in gender_options %}
+                        <option value="{{ item.0 }}" {% if selected_gender == item.0 %}selected{% endif %}>{{ item.1 }}</option>
+                        {% endfor %}
+                    </select>
+                    </div>
+
+                    <!-- Country -->
+                    <div class="job-sidebar-item">
+                    <h4 class="job-sidebar-title">Country</h4>
+                    <select name="country" class="form-select">
+                        <option value="">All Countries</option>
+                        {% for c in countries %}
+                        <option value="{{ c.id }}" {% if selected_country == c.id|stringformat:"s" %}selected{% endif %}>{{ c.name }}</option>
+                        {% endfor %}
+                    </select>
+                    </div>
+
+                    <!-- State -->
+                    <div class="job-sidebar-item">
+                    <h4 class="job-sidebar-title">State</h4>
+                    <select name="state" class="form-select">
+                        <option value="">All States</option>
+                        {% for s in states %}
+                        <option value="{{ s.id }}" {% if selected_state == s.id|stringformat:"s" %}selected{% endif %}>{{ s.name }}</option>
+                        {% endfor %}
+                    </select>
+                    </div>
+
+                    <!-- City -->
+                    <div class="job-sidebar-item">
+                    <h4 class="job-sidebar-title">City</h4>
+                    <select name="city" class="form-select">
+                        <option value="">All Cities</option>
+                        {% for city in cities %}
+                        <option value="{{ city.id }}" {% if selected_city == city.id|stringformat:"s" %}selected{% endif %}>{{ city.name }}</option>
+                        {% endfor %}
+                    </select>
+                    </div>
+
+                    <!-- Sort -->
+                    <div class="job-sidebar-item">
+                    <h4 class="job-sidebar-title">Sort</h4>
+                    <select name="sort" class="form-select">
+                        <option value="">Default</option>
+                        <option value="latest" {% if selected_sort == 'latest' %}selected{% endif %}>Latest</option>
+                        <option value="salary-asc" {% if selected_sort == 'salary-asc' %}selected{% endif %}>Salary (Low to High)</option>
+                        <option value="salary-desc" {% if selected_sort == 'salary-desc' %}selected{% endif %}>Salary (High to Low)</option>
+                    </select>
+                    </div>
+
+                </div>
+                </form>
+            </div>
+
+            <div class="col-lg-8 col-xl-9">
+                <div id="job-list">
+                <div class="row">
+                    {% for job in jobs %}
+                    <div class="col-lg-12">
+                    <div class="job-item">
+                        <!-- Job Image -->
+                        <div class="job-img">
+                        {% if job.organization.logo %}
+                            <img src="{{ job.organization.logo.url }}" alt="{{ job.company_name }}">
+                        {% else %}
+                            <img src="{% static 'assets/img/job/default-logo.png' %}" alt="No logo">
+                        {% endif %}
+                        </div>
+                        <a href="#" class="job-bookmark"><i class="fe-bookmark"></i></a>
+                        <div class="job-content">
+                        <div class="job-top">
+                            <div class="job-title">
+                            <h5>
+                                <a href="{% url 'job_detail' job.id %}">{{ job.title }}</a>
+                            </h5>
+                            <a href="#" class="job-employer">
+                                <i class="far fa-building"></i> {{ job.company_name }}
+                            </a>
+                            </div>
+                        </div>
+                        <ul class="job-info-list">
+                            <li><i class="fe-briefcase"></i> {{ job.category.name }}</li>
+                            <li><i class="fe-check-circle"></i> {{ job.job_type.name }}</li>
+                            <li><i class="fe-clock"></i> {{ job.created_at|timesince }} ago</li>
+                            {% if job.salary_min and job.salary_max %}
+                            <li><i class="fe-dollar-sign"></i> Salary: {{ job.salary_min }} - {{ job.salary_max }}</li>
+                            {% endif %}
+                            <li><i class="fe-map-pin"></i> {{ job.city.name }}, {{ job.state.name }}, {{ job.country.name }}</li>
+                        </ul>
+                        <div class="job-skill">
+                            {% for tag in job.tags.all %}
+                            <a href="#">{{ tag.name }}</a>
+                            {% empty %}
+                            <a href="#">General</a>
+                            {% endfor %}
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-12 mt-4">
+                    <div class="alert alert-warning">
+                        No jobs found for the selected filters.
+                    </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="pagination-area">
+                    <ul class="pagination">
+                    {% if jobs.has_previous %}
+                    <li>
+                        <a href="?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ jobs.previous_page_number }}">&laquo;</a>
+                    </li>
+                    {% endif %}
+                    {% for num in jobs.paginator.page_range %}
+                    {% if jobs.number == num %}
+                    <li class="active"><a href="#">{{ num }}</a></li>
+                    {% else %}
+                    <li>
+                        <a href="?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ num }}">{{ num }}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    {% if jobs.has_next %}
+                    <li>
+                        <a href="?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ jobs.next_page_number }}">&raquo;</a>
+                    </li>
+                    {% endif %}
+                    </ul>
+                    <p>
+                    Showing {{ jobs.start_index }} - {{ jobs.end_index }} of {{ jobs.paginator.count }} Jobs
+                    </p>
+                </div>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- job list end -->
+    </main>
+
+    <footer class="footer-area">
+      <div class="footer-widget">
+        <div class="container">
+          <div class="row footer-widget-wrapper pt-100 pb-70">
+            <div class="col-md-6 col-lg-6 col-xl-4">
+              <div class="footer-widget-box about-us">
+                <a href="#" class="footer-logo">
+                  <img src="assets/img/logo/logo.png" alt="" />
+                </a>
+                <p class="mb-4">
+                  We are many variations of passages available but the majority
+                  have suffered alteration in some form by injected.
+                </p>
+                <ul class="footer-contact">
+                  <li>
+                    <a href="tel:{{ contact_info.phone_primary }}"
+                      ><i class="far fa-phone"></i>
+                      {{ contact_info.phone_primary }}</a
+                    >
+                  </li>
+                  <li>
+                    <i class="far fa-map-marker-alt"></i>
+                    {{ contact_info.address }}
+                  </li>
+                  <li>
+                    <a href="mailto:{{ contact_info.email_primary }}"
+                      ><i class="far fa-envelope"></i>
+                      {{contact_info.email_primary }}</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-4">
+              <div class="footer-widget-box list">
+                <h4 class="footer-widget-title">Company</h4>
+                <ul class="footer-list">
+                  <li><a href="/about">About Us</a></li>
+                  <li><a href="/plan">Pricing Plan</a></li>
+                  <li><a href="/sitemap">Site Map</a></li>
+                  <li><a href="/scenter">Security Center</a></li>
+                  <li><a href="/team">Our Team</a></li>
+                  <li><a href="/news">Latest Blog</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-4">
+              <div class="footer-widget-box list">
+                <h4 class="footer-widget-title">Support</h4>
+                <ul class="footer-list">
+                  <li><a href="/contact">Contact Us</a></li>
+                  <li><a href="/faq">Faq's</a></li>
+                  <li><a href="/policy">Privacy Policy</a></li>
+                  <li><a href="/tos">Terms Of Service</a></li>
+                  <li><a href="/guide">Need Help</a></li>
+                  <li><a href="/chat">Live Chat</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 align-self-center">
+              <p class="copyright-text">
+                &copy; Copyright <span id="date"></span>
+                <a href="taniatech.com"> TaniaTech </a> All Rights Reserved.
+              </p>
+            </div>
+            <div class="col-md-6 align-self-center">
+              <ul class="footer-social">
+                {% if contact_info.facebook %}
+                <li>
+                  <a href="{{ contact_info.facebook }}"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                </li>
+                {% endif %} {% if contact_info.twitter %}
+                <li>
+                  <a href="{{ contact_info.twitter }}"
+                    ><i class="fab fa-x-twitter"></i
+                  ></a>
+                </li>
+                {% endif %} {% if contact_info.linkedin %}
+                <li>
+                  <a href="{{ contact_info.linkedin }}"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                </li>
+                {% endif %} {% if contact_info.youtube %}
+                <li>
+                  <a href="{{ contact_info.youtube }}"
+                    ><i class="fab fa-youtube"></i
+                  ></a>
+                </li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer area end -->
+
+    <!-- scroll-top -->
+    <a href="#" id="scroll-top"><i class="far fa-angle-up"></i></a>
+    <!-- scroll-top end -->
+ <script>
+  document.querySelectorAll('#job-filter-form input, #job-filter-form select').forEach(function (el) {
+    el.addEventListener('change', function () {
+      document.getElementById('job-filter-form').submit();
+    });
+  });
+</script>
+
+
+    <!-- js -->
+    <script
+      data-cfasync="false"
+      src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  function loadJobs(url) {
+    let $form = $('#job-filter-form');
+    $.ajax({
+      url: url || ($form.attr('action') || window.location.href),
+      data: $form.serialize(),
+      type: 'GET',
+      beforeSend: function() {
+        $('#job-list').html('<p>Loading jobs...</p>');
+      },
+      success: function(data) {
+        let newList = $(data).find('#job-list').html();
+        $('#job-list').html(newList);
+      },
+      error: function() {
+        $('#job-list').html('<p>Could not load jobs. Please try again.</p>');
+      }
+    });
+  }
+
+  // When any filter changes
+  $('#job-filter-form').on('change', 'input, select', function() {
+    loadJobs();
+  });
+
+  // Handle pagination clicks
+  $('#job-list').on('click', '.pagination a', function(e) {
+    e.preventDefault();
+    let url = $(this).attr('href');
+    loadJobs(url);
+  });
+});
+</script>
+
+    <script src="assets/js/modernizr.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/counter-up.js"></script>
+    <script src="assets/js/masonry.pkgd.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/nice-select.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+
+  <!-- Mirrored from live.themewild.com/jobox/job-list-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 02 Jul 2025 05:57:36 GMT -->
+</html>

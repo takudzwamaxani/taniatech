@@ -1,0 +1,614 @@
+{% load static %} {% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- required meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="{% static '' %}" />
+
+    <!-- title -->
+    <title>TaniaTech Job Portal</title>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/logo/favicon.png" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/all-fontawesome.min.css" />
+    <link rel="stylesheet" href="assets/css/feather.min.css" />
+    <link rel="stylesheet" href="assets/css/flaticon.css" />
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css" />
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/css/nice-select.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <!-- preloader -->
+    <div class="preloader">
+      <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <!-- preloader end -->
+
+      <!-- header area -->
+    <header class="header">
+      <div class="main-navigation">
+        <nav class="navbar navbar-expand-lg">
+          <div
+            class="container d-flex justify-content-between align-items-center"
+          >
+            <!-- Logo -->
+            <a
+              class="navbar-brand"
+              href="/"
+              style="
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                line-height: 0;
+              "
+            >
+              <img
+                src="assets/img/logo/logo.png"
+                alt="logo"
+                style="
+                  display: block;
+                  margin: 0;
+                  padding: 0;
+                  height: 70px;
+                  width: auto;
+                "
+              />
+            </a>
+
+            <!-- Mobile menu button (only visible on mobile) -->
+            <div class="mobile-menu-right d-lg-none">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#main_nav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-btn-icon">
+                  <i class="far fa-bars"></i>
+                </span>
+              </button>
+            </div>
+
+            <!-- Navbar links -->
+            <div
+              class="collapse navbar-collapse justify-content-end align-items-center gap-3"
+              id="main_nav"
+            >
+              <ul class="navbar-nav d-flex gap-3">
+                <li class="nav-item">
+                  <a class="nav-link active" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/jobs">Jobs</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/cvs">Get your CV</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/news">News</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contact">Contact</a>
+                </li>
+              </ul>
+
+              <!-- Sign In -->
+              <div class="header-nav-right ms-3">
+                <div class="header-btn">
+                  <a href="/login" class="theme-btn theme-btn2">
+                    <span class="far fa-sign-in"></span> Sign In
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+
+    <main class="main">
+      <!-- breadcrumb -->
+      <div class="site-breadcrumb">
+        <div class="container">
+          <h2 class="breadcrumb-title">Job Details</h2>
+          <ul class="breadcrumb-menu">
+            <li><a href="/">Home</a></li>
+            <li class="active">Job Details</li>
+          </ul>
+        </div>
+        <div class="hero-shape">
+          <img class="hero-shape-1" src="assets/img/shape/03.svg" alt="" />
+          <img class="hero-shape-2" src="assets/img/shape/05.svg" alt="" />
+          <img class="hero-shape-3" src="assets/img/shape/06.svg" alt="" />
+          <img class="hero-shape-4" src="assets/img/shape/07.svg" alt="" />
+        </div>
+      </div>
+
+      <!-- job single -->
+      <!-- job single -->
+      <div class="job-single py-120">
+        <div class="container">
+          <div class="row g-5">
+            <!-- Left: Main job content -->
+            <div class="col-lg-8">
+              <div class="job-single-content mb-5">
+                <div class="job-single-img">
+                  {% if job.organization and job.organization.logo %}
+                  <img
+                    src="{{ job.organization.logo.url }}"
+                    alt="{{ job.organization.name }}"
+                  />
+                  {% else %}
+                  <img
+                    src="{% static 'assets/img/job/single.jpg' %}"
+                    alt="{{ job.title }}"
+                  />
+                  {% endif %}
+                </div>
+                <h4 class="job-single-title">{{ job.title }}</h4>
+                <div class="job-single-details">
+                  <p>{{ job.description|safe }}</p>
+
+                  {% if job.required_skills %}
+                  <div class="job-single-info mt-4">
+                    <h5>Required Skills</h5>
+                    <ul>
+                      {% for skill in required_skills %}
+                      <li>
+                        <i class="fad fa-check-circle"></i> {{ skill}}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                  {% endif %} {% if job.qualification %}
+                  <div class="job-single-info">
+                    <h5>Qualification</h5>
+                    <p>{{ job.qualification }}</p>
+                  </div>
+                  {% endif %}
+
+                  <div class="job-location mt-4">
+                    <h5>Location</h5>
+                    <p>
+                      {{ job.city.name }}, {{ job.state.name }}, 
+                      {{ job.country.name }}<br />
+                      {{ job.full_address }}
+                    </p>
+                    {% if job.country %}
+                    <div>
+                      <!-- Optionally embed a map if you have coordinates -->
+                      <iframe
+                        width="100%"
+                        height="300"
+                        style="border: 0"
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps?q={{ job.city.name }} {{ job.state.name }} {{ job.country.name }}&output=embed"
+                      >
+                      </iframe>
+                    </div>
+                    {% endif %}
+                  </div>
+                </div>
+
+                <div class="job-single-social-share mt-4">
+                  <span>Share This:</span>
+                  <a
+                    target="_blank"
+                    href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
+                  >
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ job.title|urlencode }}"
+                  >
+                    <i class="fab fa-x-twitter"></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}"
+                  >
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://api.whatsapp.com/send?text={{ job.title|urlencode }}%20{{ request.build_absolute_uri }}"
+                  >
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Sidebar -->
+            <div class="col-lg-4">
+              <div class="job-sidebar">
+                <div class="job-single-heading">
+                  <div class="job-single-employer">
+                    {% if job.organization and job.organization.logo %}
+                    <img
+                      src="{{ job.organization.logo.url }}"
+                      alt="{{ job.organization.name }}"
+                    />
+                    {% else %}
+                    <img
+                      src="{% static 'assets/img/job/01.jpg' %}"
+                      alt="{{ job.organization.name }}"
+                    />
+                    {% endif %}
+                    <div class="job-single-employer-info">
+                      <h4>{{ job.organization.name }}</h4>
+                      {% if job.organization.website %}
+                      <a href="{{ job.organization.website }}" target="_blank"
+                        >View the Website</a
+                      >
+                      {% endif %}
+                    </div>
+                  </div>
+                  {% if job.organization.application_instructions %}
+                  <p>{{ job.organization.application_instructions }}</p>
+                  {% endif %}
+                  <div class="job-single-heading-btns mt-3">
+                    {% comment %} <a href="#" class="theme-btn"
+                      ><span class="fe-briefcase"></span> Apply Now</a
+                    >
+                    <a href="#" class="theme-btn theme-btn2"
+                      ><span class="fe-bookmark"></span> Save Job</a
+                    > {% endcomment %}
+                  </div>
+                </div>
+
+                <div class="job-single-list mt-4">
+                  <h5>Job Overview</h5>
+                  <ul>
+                    <li>
+                      <div class="job-single-list-icon">
+                        <i class="fal fa-clock"></i>
+                      </div>
+                      <div class="job-single-list-info">
+                        <h6>Date Posted</h6>
+                        <p>{{ job.created_at|timesince }} ago</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="job-single-list-icon">
+                        <i class="fal fa-layer-group"></i>
+                      </div>
+                      <div class="job-single-list-info">
+                        <h6>Category</h6>
+                        <p>{{ job.category.name }}</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="job-single-list-icon">
+                        <i class="fal fa-check-circle"></i>
+                      </div>
+                      <div class="job-single-list-info">
+                        <h6>Job Type</h6>
+                        <p>{{ job.job_type.name }}</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="job-single-list-icon">
+                        <i class="fal fa-medal"></i>
+                      </div>
+                      <div class="job-single-list-info">
+                        <h6>Experience</h6>
+                        <p>{{ job.experience }}</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="job-single-list-icon">
+                        <i class="fal fa-venus-mars"></i>
+                      </div>
+                      <div class="job-single-list-info">
+                        <h6>Gender</h6>
+                        <p>{{ job.gender }}</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="job-single-list-icon">
+                        <i class="fal fa-sack-dollar"></i>
+                      </div>
+                      <div class="job-single-list-info">
+                        <h6>Salary</h6>
+                        <p>
+                          {% if job.offered_salary %} $
+                          {{job.offered_salary|floatformat:0 }} {% else %} Not
+                          specified {% endif %}
+                        </p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="job-single-list-icon">
+                        <i class="fal fa-clock-rotate-left"></i>
+                      </div>
+                      <div class="job-single-list-info">
+                        <h6>Expiration Date</h6>
+                        <p>{{ job.end_date }}</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="job-single-list-icon">
+                        <i class="fal fa-location-dot"></i>
+                      </div>
+                      <div class="job-single-list-info">
+                        <h6>Location</h6>
+                        <p>
+                          {{ job.city.name }}, {{ job.state.name }},
+                          j{{ job.country.name }}
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="job-employer-contact mt-4">
+                  <h5>Contact Info</h5>
+                  <ul>
+                    {% if contact_info %} {% if contact_info.address %}
+                    <li>
+                      <i class="far fa-location-dot"></i>
+                      {{ contact_info.address }}
+                    </li>
+                    {% endif %} {% if contact_info.email %}
+                    <li>
+                      <i class="far fa-envelope"></i>
+                      <a href="mailto:{{ contact_info.email }}"
+                        >{{ contact_info.email }}</a
+                      >
+                    </li>
+                    {% endif %} {% if contact_info.phone %}
+                    <li>
+                      <i class="far fa-phone"></i> {{ contact_info.phone }}
+                    </li>
+                    {% endif %} {% if contact_info.hours %}
+                    <li>
+                      <i class="far fa-alarm-clock"></i> {{ contact_info.hours}}
+                    </li>
+                    {% endif %} {% endif %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Related Jobs -->
+          {% if related_jobs %}
+          <div class="col-lg-12 mt-5">
+            <div class="related-job">
+              <h4>Related Jobs</h4>
+              <div class="row">
+                {% for r in related_jobs %}
+                <div class="col-lg-6 col-xl-4">
+                  <div class="job-item">
+                    <a href="{% url 'job_detail' r.id %}" class="job-bookmark"
+                      ><i class="fe-bookmark"></i
+                    ></a>
+                    <div class="job-top">
+                      <div class="job-img">
+                        {% if r.organization.logo %}
+                        <img
+                          src="{{ r.organization.logo.url }}"
+                          alt="{{ r.organization.name }}"
+                        />
+                        {% else %}
+                        <img
+                          src="{% static 'assets/img/job/01.jpg' %}"
+                          alt=""
+                        />
+                        {% endif %}
+                      </div>
+                      <div class="job-title">
+                        <h5>
+                          <a href="{% url 'job_detail' r.id %}"
+                            >{{ r.title }}</a
+                          >
+                        </h5>
+                        <a href="#" class="job-employer"
+                          ><i class="far fa-building"></i> {{
+                          r.organization.name }}</a
+                        >
+                      </div>
+                    </div>
+                    <div class="job-content">
+                      <ul class="job-info-list">
+                        <li>
+                          <i class="fe-briefcase"></i> {{ r.category.name }}
+                        </li>
+                        <li>
+                          <i class="fe-check-circle"></i> {{ r.job_type.name }}
+                        </li>
+                        <li>
+                          <i class="fe-clock"></i> {{ r.created_at|timesince }}
+                          ago
+                        </li>
+                        <li>
+                          <i class="fe-map-pin"></i> {{ r.city.name }}, {{
+                          r.country.name }}
+                        </li>
+                      </ul>
+                      <div class="job-skill">
+                        {% for s in required_skills %}
+                        <a href="#">{{ s}}</a>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    <div class="job-bottom">
+                      <div class="job-salary">
+                        {% if r.offered_salary %}
+                        <span class="job-salary-amount"
+                          >${{ r.offered_salary|floatformat:0 }}</span
+                        >
+                        {% endif %}
+                      </div>
+                      <a href="{% url 'job_detail' r.id %}" class="theme-btn"
+                        >Apply Now</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <!-- job single -->
+
+      <!-- job single -->
+    </main>
+
+    <!-- footer area -->
+      <footer class="footer-area">
+      <div class="footer-widget">
+        <div class="container">
+          <div class="row footer-widget-wrapper pt-100 pb-70">
+            <div class="col-md-6 col-lg-6 col-xl-4">
+              <div class="footer-widget-box about-us">
+                <a href="#" class="footer-logo">
+                  <img src="assets/img/logo/logo.png" alt="" />
+                </a>
+                <p class="mb-4">
+                  We are many variations of passages available but the majority
+                  have suffered alteration in some form by injected.
+                </p>
+                <ul class="footer-contact">
+                  <li>
+                    <a href="tel:{{ contact_info.phone_primary }}"
+                      ><i class="far fa-phone"></i>
+                     {{contact_info.phone_primary }}</a
+                    >
+                  </li>
+                  <li>
+                    <i class="far fa-map-marker-alt"></i>
+                    {{ contact_info.address }}
+                  </li>
+                  <li>
+                    <a href="mailto:{{ contact_info.email_primary }}"
+                      ><i class="far fa-envelope"></i>
+                      {{contact_info.email_primary }}</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-4">
+              <div class="footer-widget-box list">
+                <h4 class="footer-widget-title">Company</h4>
+                <ul class="footer-list">
+                  <li><a href="/about">About Us</a></li>
+                  <li><a href="/plan">Pricing Plan</a></li>
+                  <li><a href="/sitemap">Site Map</a></li>
+                  <li><a href="/scenter">Security Center</a></li>
+                  <li><a href="/team">Our Team</a></li>
+                  <li><a href="/news">Latest Blog</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-4">
+              <div class="footer-widget-box list">
+                <h4 class="footer-widget-title">Support</h4>
+                <ul class="footer-list">
+                  <li><a href="/contact">Contact Us</a></li>
+                  <li><a href="/faq">Faq's</a></li>
+                  <li><a href="/policy">Privacy Policy</a></li>
+                  <li><a href="/tos">Terms Of Service</a></li>
+                  <li><a href="/guide">Need Help</a></li>
+                  <li><a href="/chat">Live Chat</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 align-self-center">
+              <p class="copyright-text">
+                &copy; Copyright <span id="date"></span>
+                <a href="taniatech.com"> TaniaTech </a> All Rights Reserved.
+              </p>
+            </div>
+            <div class="col-md-6 align-self-center">
+              <ul class="footer-social">
+                {% if contact_info.facebook %}
+                <li>
+                  <a href="{{ contact_info.facebook }}"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                </li>
+                {% endif %} {% if contact_info.twitter %}
+                <li>
+                  <a href="{{ contact_info.twitter }}"
+                    ><i class="fab fa-x-twitter"></i
+                  ></a>
+                </li>
+                {% endif %} {% if contact_info.linkedin %}
+                <li>
+                  <a href="{{ contact_info.linkedin }}"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                </li>
+                {% endif %} {% if contact_info.youtube %}
+                <li>
+                  <a href="{{ contact_info.youtube }}"
+                    ><i class="fab fa-youtube"></i
+                  ></a>
+                </li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer area end -->
+
+    <!-- scroll-top -->
+    <a href="#" id="scroll-top"><i class="far fa-angle-up"></i></a>
+    <!-- scroll-top end -->
+
+    <!-- js -->
+    <script
+      data-cfasync="false"
+      src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/modernizr.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/counter-up.js"></script>
+    <script src="assets/js/masonry.pkgd.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/nice-select.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+
+  <!-- Mirrored from live.themewild.com/jobox/job-single.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 02 Jul 2025 05:57:36 GMT -->
+</html>

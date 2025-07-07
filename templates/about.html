@@ -1,0 +1,663 @@
+{% load static %} {% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- required meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="{% static '' %}" />
+
+    <!-- title -->
+    <title>TaniaTech Job Portal</title>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/logo/favicon.png">
+
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all-fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/feather.min.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/nice-select.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <!-- preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <!-- preloader end -->
+
+
+    <!-- header area -->
+      <header class="header">
+      <div class="main-navigation">
+        <nav class="navbar navbar-expand-lg">
+          <div
+            class="container d-flex justify-content-between align-items-center"
+          >
+            <!-- Logo -->
+            <a
+              class="navbar-brand"
+              href="/"
+              style="
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                line-height: 0;
+              "
+            >
+              <img
+                src="assets/img/logo/logo.png"
+                alt="logo"
+                style="
+                  display: block;
+                  margin: 0;
+                  padding: 0;
+                  height: 70px;
+                  width: auto;
+                "
+              />
+            </a>
+
+            <!-- Mobile menu button (only visible on mobile) -->
+            <div class="mobile-menu-right d-lg-none">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#main_nav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-btn-icon">
+                  <i class="far fa-bars"></i>
+                </span>
+              </button>
+            </div>
+
+            <!-- Navbar links -->
+            <div
+              class="collapse navbar-collapse justify-content-end align-items-center gap-3"
+              id="main_nav"
+            >
+              <ul class="navbar-nav d-flex gap-3">
+                <li class="nav-item">
+                  <a class="nav-link active" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/jobs">Jobs</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/cvs">CV Maker</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/news">News</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contact">Contact</a>
+                </li>
+              </ul>
+
+              <!-- Sign In -->
+              <div class="header-nav-right ms-3">
+                <div class="header-btn">
+                  <a href="/login" class="theme-btn theme-btn2">
+                    <span class="far fa-sign-in"></span> Sign In
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- header area end -->
+
+
+
+    <main class="main">
+
+        <!-- breadcrumb -->
+        <div class="site-breadcrumb">
+            <div class="container">
+                <h2 class="breadcrumb-title">About Us</h2>
+                <ul class="breadcrumb-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">About Us</li>
+                </ul>
+            </div>
+            <div class="hero-shape">
+                <img class="hero-shape-1" src="assets/img/shape/03.svg" alt="">
+                <img class="hero-shape-2" src="assets/img/shape/05.svg" alt="">
+                <img class="hero-shape-3" src="assets/img/shape/06.svg" alt="">
+                <img class="hero-shape-4" src="assets/img/shape/07.svg" alt="">
+            </div>
+        </div>
+
+
+
+        <!-- about area -->
+        <div class="about-area py-120 mb-30">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="about-left">
+                            <div class="about-img">
+                                <img src="assets/img/about/01.jpg" alt="">
+                            </div>
+                            <div class="about-shape">
+                                <img src="assets/img/shape/01.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-right">
+                            <div class="site-heading mb-3">
+                                <span class="site-title-tagline">About Us</span>
+                                <h2 class="site-title">Get the Best Job That <span>Fits You And We Create</span> Unique Experiences</h2>
+                            </div>
+                            <p class="about-text">There are many variations of passages of Lorem Ipsum available,
+                                but the majority have suffered alteration in some form by injected humour or
+                                randomised content of a page when looking at its layout words which don't look even.</p>
+                            <div class="about-list-wrapper">
+                                <ul class="about-list list-unstyled">
+                                    <li>
+                                        <div class="about-icon"><span class="fas fa-check-circle"></span></div>
+                                        <div class="about-list-text">
+                                            <p>Take a look at our round up of the best shows</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="about-icon"><span class="fas fa-check-circle"></span></div>
+                                        <div class="about-list-text">
+                                            <p>Lorem Ipsum has been the ndustry standard dummy text</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="about-icon"><span class="fas fa-check-circle"></span></div>
+                                        <div class="about-list-text">
+                                            <p>It has survived not only five centuries</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="about.html" class="theme-btn">Read More <i class="far fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- about area end -->
+
+
+
+        <!-- counter area -->
+        <div class="counter-area pb-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="counter-box">
+                            <div class="icon">
+                                <i class="fal fa-users"></i>
+                            </div>
+                            <div class="counter-content">
+                                <div class="counter-number">
+                                    <span class="counter" data-count="+" data-to="20" data-speed="3000">20</span>
+                                    <span class="counter-sign">M</span>
+                                </div>
+                                <h6 class="title">Daily Users</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="counter-box">
+                            <div class="icon">
+                                <i class="fal fa-address-book"></i>
+                            </div>
+                            <div class="counter-content">
+                                <div class="counter-number">
+                                    <span class="counter" data-count="+" data-to="50" data-speed="3000">50</span>
+                                    <span class="counter-sign">K</span>
+                                </div>
+                                <h6 class="title">Job Positions</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="counter-box">
+                            <div class="icon">
+                                <i class="fal fa-smile"></i>
+                            </div>
+                            <div class="counter-content">
+                                <div class="counter-number">
+                                    <span class="counter" data-count="+" data-to="30" data-speed="3000">30</span>
+                                    <span class="counter-sign">M</span>
+                                </div>
+                                <h6 class="title">Happy Clients</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="counter-box">
+                            <div class="icon">
+                                <i class="fal fa-buildings"></i>
+                            </div>
+                            <div class="counter-content">
+                                <div class="counter-number">
+                                    <span class="counter" data-count="+" data-to="50" data-speed="3000">50</span>
+                                    <span class="counter-sign">k</span>
+                                </div>
+                                <h6 class="title">Total Employers</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- counter area end -->
+
+
+
+        <!-- testimonial-area -->
+        <div class="testimonial-area pb-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mx-auto wow fadeInDown" data-wow-duration="1s" data-wow-delay=".25s">
+                        <div class="site-heading text-center">
+                            <span class="site-title-tagline">Testimonials</span>
+                            <h2 class="site-title">What Our Client Say's</h2>
+                            <p>We Collect Reviews From Our Users So You Can Get An Honest Opinion</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slider owl-carousel owl-theme">
+                    <div class="testimonial-item">
+                        <div class="testimonial-rate">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-quote">
+                            <p>
+                                There are many variations of passages available but the majority have suffered alteration in some form by injected popularity belief believable.
+                            </p>
+                        </div>
+                        <div class="testimonial-content">
+                            <div class="testimonial-author-img">
+                                <img src="assets/img/testimonial/01.jpg" alt="">
+                            </div>
+                            <div class="testimonial-author-info">
+                                <h5>Reid E Butt</h5>
+                                <p>Web Developer</p>
+                            </div>
+                        </div>
+                        <span class="testimonial-quote-icon"><i class="flaticon-quote-1"></i></span>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-rate">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-quote">
+                            <p>
+                                There are many variations of passages available but the majority have suffered alteration in some form by injected popularity belief believable.
+                            </p>
+                        </div>
+                        <div class="testimonial-content">
+                            <div class="testimonial-author-img">
+                                <img src="assets/img/testimonial/02.jpg" alt="">
+                            </div>
+                            <div class="testimonial-author-info">
+                                <h5>Gordo Novak</h5>
+                                <p>Graphics Designer</p>
+                            </div>
+                        </div>
+                        <span class="testimonial-quote-icon"><i class="flaticon-quote-1"></i></span>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-rate">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-quote">
+                            <p>
+                                There are many variations of passages available but the majority have suffered alteration in some form by injected popularity belief believable.
+                            </p>
+                        </div>
+                        <div class="testimonial-content">
+                            <div class="testimonial-author-img">
+                                <img src="assets/img/testimonial/03.jpg" alt="">
+                            </div>
+                            <div class="testimonial-author-info">
+                                <h5>Parker Jimenez</h5>
+                                <p>Project Manager</p>
+                            </div>
+                        </div>
+                        <span class="testimonial-quote-icon"><i class="flaticon-quote-1"></i></span>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-rate">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-quote">
+                            <p>
+                                There are many variations of passages available but the majority have suffered alteration in some form by injected popularity belief believable.
+                            </p>
+                        </div>
+                        <div class="testimonial-content">
+                            <div class="testimonial-author-img">
+                                <img src="assets/img/testimonial/04.jpg" alt="">
+                            </div>
+                            <div class="testimonial-author-info">
+                                <h5>Sylvia H Green</h5>
+                                <p>Digital Marketer</p>
+                            </div>
+                        </div>
+                        <span class="testimonial-quote-icon"><i class="flaticon-quote-1"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- testimonial-area end -->
+
+
+
+        <!-- team-area -->
+        <div class="team-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mx-auto wow fadeInDown" data-wow-duration="1s" data-wow-delay=".25s">
+                        <div class="site-heading text-center">
+                            <span class="site-title-tagline">Our Team</span>
+                            <h2 class="site-title">Meet With Our Experts</h2>
+                            <p>We Help Companies And Candidates Find The Right Fit</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="assets/img/team/01.jpg" alt="thumb">
+                            </div>
+                            <div class="team-content">
+                                <div class="team-bio">
+                                    <h5><a href="#">Edna Craig</a></h5>
+                                    <span>Project Manager</span>
+                                </div>
+                                <ul class="team-social">
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-x-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="assets/img/team/02.jpg" alt="thumb">
+                            </div>
+                            <div class="team-content">
+                                <div class="team-bio">
+                                    <h5><a href="#">Jeffrey Cox</a></h5>
+                                    <span>CEO & Founder</span>
+                                </div>
+                                <ul class="team-social">
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-x-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="assets/img/team/03.jpg" alt="thumb">
+                            </div>
+                            <div class="team-content">
+                                <div class="team-bio">
+                                    <h5><a href="#">Audrey Gaddis</a></h5>
+                                    <span>Frontend Developer</span>
+                                </div>
+                                <ul class="team-social">
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-x-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="assets/img/team/04.jpg" alt="thumb">
+                            </div>
+                            <div class="team-content">
+                                <div class="team-bio">
+                                    <h5><a href="#">Rodger Garza</a></h5>
+                                    <span>Backend Developer</span>
+                                </div>
+                                <ul class="team-social">
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-x-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- team-area end -->
+
+
+
+        <!-- partner area -->
+        <div class="partner-area pt-80 pb-90">
+            <div class="container">
+                <div class="partner-wrapper">
+                    <div class="partner-slider owl-carousel owl-theme">
+                        <div class="partner-item">
+                            <img src="assets/img/partner/01.png" alt="thumb">
+                        </div>
+                        <div class="partner-item">
+                            <img src="assets/img/partner/02.png" alt="thumb">
+                        </div>
+                        <div class="partner-item">
+                            <img src="assets/img/partner/03.png" alt="thumb">
+                        </div>
+                        <div class="partner-item">
+                            <img src="assets/img/partner/04.png" alt="thumb">
+                        </div>
+                        <div class="partner-item">
+                            <img src="assets/img/partner/05.png" alt="thumb">
+                        </div>
+                        <div class="partner-item">
+                            <img src="assets/img/partner/06.png" alt="thumb">
+                        </div>
+                        <div class="partner-item">
+                            <img src="assets/img/partner/03.png" alt="thumb">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!-- partner area end -->
+
+
+    </main>
+
+
+
+    <!-- footer area -->
+    <footer class="footer-area">
+        <div class="footer-widget">
+            <div class="container">
+                <div class="row footer-widget-wrapper pt-100 pb-70">
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <div class="footer-widget-box about-us">
+                            <a href="#" class="footer-logo">
+                                <img src="assets/img/logo/logo.png" alt="">
+                            </a>
+                            <p class="mb-4">
+                                We are many variations of passages available but the majority have suffered alteration
+                                in some form by injected.
+                            </p>
+                            <ul class="footer-contact">
+                                <li><a href="tel:+21236547898"><i class="far fa-phone"></i>+2 123 654 7898</a></li>
+                                <li><i class="far fa-map-marker-alt"></i>25/B Milford Road, New York</li>
+                                <li><a href="../cdn-cgi/l/email-protection.html#036a6d656c43667b626e736f662d606c6e"><i
+                                            class="far fa-envelope"></i><span class="__cf_email__" data-cfemail="aac3c4ccc5eacfd2cbc7dac6cf84c9c5c7">[email&#160;protected]</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-2">
+                        <div class="footer-widget-box list">
+                            <h4 class="footer-widget-title">Company</h4>
+                            <ul class="footer-list">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Pricing Plan</a></li>
+                                <li><a href="#">Site Map</a></li>
+                                <li><a href="#">Security Center</a></li>
+                                <li><a href="#">Our Team</a></li>
+                                <li><a href="#">Latest Blog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-2">
+                        <div class="footer-widget-box list">
+                            <h4 class="footer-widget-title">Quick Links</h4>
+                            <ul class="footer-list">
+                                <li><a href="#">Find Jobs</a></li>
+                                <li><a href="#">Employers</a></li>
+                                <li><a href="#">Candidates</a></li>
+                                <li><a href="#">Post Job</a></li>
+                                <li><a href="#">Sign In</a></li>
+                                <li><a href="#">Sign Up</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-2">
+                        <div class="footer-widget-box list">
+                            <h4 class="footer-widget-title">Support</h4>
+                            <ul class="footer-list">
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Faq's</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms Of Service</a></li>
+                                <li><a href="#">Need Help</a></li>
+                                <li><a href="#">Live Chat</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <div class="footer-widget-box list">
+                            <h4 class="footer-widget-title">Newsletter</h4>
+                            <div class="footer-newsletter">
+                                <p>Subscribe Our Newsletter To Get Latest Update And News</p>
+                                <div class="subscribe-form">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <div class="form-group-icon">
+                                                <i class="fe-mail"></i>
+                                                <input type="email" class="form-control" placeholder="Your Email">
+                                                <button class="theme-btn" type="submit"><span
+                                                        class="fe-send"></span></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="footer-download">
+                                <h5>Download</h5>
+                                <div class="footer-download-content">
+                                    <a href="#"><img src="assets/img/download/google-play.png" alt=""></a>
+                                    <a href="#"><img src="assets/img/download/app-store.png" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <p class="copyright-text">
+                            &copy; Copyright <span id="date"></span> <a href="#"> Jobox </a> All Rights Reserved.
+                        </p>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-x-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer area end -->
+
+
+
+
+    <!-- scroll-top -->
+    <a href="#" id="scroll-top"><i class="far fa-angle-up"></i></a>
+    <!-- scroll-top end -->
+
+
+    <!-- js -->
+    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/modernizr.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/counter-up.js"></script>
+    <script src="assets/js/masonry.pkgd.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/nice-select.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+
+<!-- Mirrored from live.themewild.com/jobox/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 02 Jul 2025 05:57:48 GMT -->
+</html>
