@@ -42,7 +42,6 @@ pyngrok==7.2.11
 pyodbc==5.2.0
 pyOpenSSL==25.0.0
 pyparsing==3.2.1
-pypiwin32==223
 pypng==0.20220715.0
 pyserial==3.5
 python-dateutil==2.9.0.post0
