@@ -184,15 +184,15 @@
                       {% if article.author %}
                       <li>
                         <a href="#"
-                          ><i class="far fa-user-circle"></i> {{ article.author
-                          }}</a
+                          ><i class="far fa-user-circle"></i> {{ article.author }}
+                          </a
                         >
                       </li>
                       {% endif %}
                       <li>
                         <a href="#"
-                          ><i class="far fa-calendar-alt"></i> {{
-                          article.published_date|date:"F d, Y" }}</a
+                          ><i class="far fa-calendar-alt"></i> 
+                          {{ article.published_date|date:"F d, Y" }}</a
                         >
                       </li>
                     </ul>
